@@ -21,10 +21,6 @@ from nav2_simple_commander.robot_navigator import BasicNavigator, TaskResult
 import rclpy
 from rclpy.duration import Duration
 
-"""
-Basic navigation demo to go to poses.
-"""
-
 
 def main():
     rclpy.init()
@@ -58,15 +54,15 @@ def main():
     # local_costmap = navigator.getLocalCostmap()
 
     # set our demo's goal poses to follow
-    goal_poses = []
-    goal_pose1 = PoseStamped()
-    goal_pose1.header.frame_id = 'map'
-    goal_pose1.header.stamp = navigator.get_clock().now().to_msg()
-    goal_pose1.pose.position.x = 2.3828070163726807
-    goal_pose1.pose.position.y = 0.028348933905363083
-    goal_pose1.pose.orientation.z = -0.002900254461821974
-    goal_pose1.pose.orientation.w = 0.9999957942531842
-    goal_poses.append(goal_pose1)
+    # goal_poses = []
+    # goal_pose1 = PoseStamped()
+    # goal_pose1.header.frame_id = 'map'
+    # goal_pose1.header.stamp = navigator.get_clock().now().to_msg()
+    # goal_pose1.pose.position.x = 2.3828070163726807
+    # goal_pose1.pose.position.y = 0.028348933905363083
+    # goal_pose1.pose.orientation.z = -0.002900254461821974
+    # goal_pose1.pose.orientation.w = 0.9999957942531842
+    # goal_poses.append(goal_pose1)
 
     # additional goals can be appended
     # goal_pose2 = PoseStamped()
@@ -78,14 +74,15 @@ def main():
     # goal_pose2.pose.orientation.w = 0.2784694394791456
     # goal_poses.append(goal_pose2)
 
-    # goal_pose3 = PoseStamped()
-    # goal_pose3.header.frame_id = 'map'
-    # goal_pose3.header.stamp = navigator.get_clock().now().to_msg()
-    # goal_pose3.pose.position.x = -1.5473958253860474
-    # goal_pose3.pose.position.y = 3.438857078552246
-    # goal_pose3.pose.orientation.z = -0.012702573579062883
-    # goal_pose3.pose.orientation.w = 0.999919319057527
-    # goal_poses.append(goal_pose3)
+    goal_poses = []
+    goal_pose3 = PoseStamped()
+    goal_pose3.header.frame_id = 'map'
+    goal_pose3.header.stamp = navigator.get_clock().now().to_msg()
+    goal_pose3.pose.position.x = -1.5473958253860474
+    goal_pose3.pose.position.y = 3.438857078552246
+    goal_pose3.pose.orientation.z = -0.012702573579062883
+    goal_pose3.pose.orientation.w = 0.999919319057527
+    goal_poses.append(goal_pose3)
 
     # sanity check a valid path exists
     # path = navigator.getPath(initial_pose, goal_pose1)
@@ -146,6 +143,9 @@ def main():
     navigator.goToPose(initial_pose)
     while not navigator.isNavComplete:
             pass
+    
+    # Wait for 10 seconds at the pose
+    rclpy.sleep(10)
     
 
 
