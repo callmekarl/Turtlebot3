@@ -88,9 +88,12 @@ sudo apt install ros-humble-nav2-bringup
 # 3. Running the Application
 Nowadays, AGVs are supporting the heterogeneous and growing demand of material handling and logistics in flexible factory environments. In our Use-case design, Turtlebot is configured to perform three workloads tasks respectively.
 <center>
-  img width="569" alt="Workload" src="https://github.com/callmekarl/Turtlebot3_ws/assets/105017251/371b3f99-5ef1-422e-9d3c-d6e514763715"
+  <img width="569" alt="Workload" src="https://github.com/callmekarl/Turtlebot3_ws/assets/105017251/371b3f99-5ef1-422e-9d3c-d6e514763715">
 </center>
 
+- Workload1: AGV departs from Docking Station, picking up at Station 1, and then returns to the Docking Dtation to drop off. 
+- Workload2: AGV departs from Docking Station, picking up at Station 3, and then returns to the Docking Dtation to drop off.
+- Workload3: AGV departs from Docking Station, picking up at Station 2, droping off at Station 3, and then returns to the Docking Station.
 
 ## 3.1 Launch the Bringup
 ```
