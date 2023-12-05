@@ -35,7 +35,7 @@ sudo apt install ros-humble-nav2-bringup
 
   git clone https://github.com/callmekarl/Turtlebot3_ws.git
   colcon build --symlink-install
-  echo 'source ~/turtlebot3_ws/install/setup.bash' >> ~/.bashrc
+  echo 'source ~/Turtlebot3_ws/install/setup.bash' >> ~/.bashrc
   source ~/.bashrc
 ```
 ### 1.1.5 Config ROS Environment for Remote PC
@@ -62,7 +62,7 @@ sudo apt install ros-humble-nav2-bringup
   echo 'source /opt/ros/humble/setup.bash' >> ~/.bashrc
   source ~/.bashrc
   colcon build --symlink-install --parallel-workers 1
-  echo 'source ~/turtlebot3_ws/install/setup.bash' >> ~/.bashrc
+  echo 'source ~/Turtlebot3_ws/install/setup.bash' >> ~/.bashrc
   source ~/.bashrc
 ```
 ### 1.2.5 USB Port Setting for OpenCR
@@ -87,8 +87,21 @@ sudo apt install ros-humble-nav2-bringup
 
 # 3. Running the Application
 
-## Launch the Bringup
+## 3.1 Launch the Bringup
 ```
   ssh turtlebot1@10.0.33.30
+  export TURTLEBOT3_MODEL=burger
+  ros2 launch turtlebot3_bringup robot.launch.py
 ```
-
+## 3.2 Launch the Navigation from Remote PC
+```
+  source ~/Turtlebot3_ws/install/setup.bash
+  export TURTLEBOT3_MODEL=burger
+  ros2 launch turtlebot3_navigation2 navigation2.launch.py map:=$HOME/map.yaml
+```
+## 3.3 Run the Workload from Remote PC
+```
+  source ~/Turtlebot3_ws/install/setup.bash
+  export TURTLEBOT3_MODEL=burger
+  python3 ~/Turtlebot3_ws/src/workload/scripts/workload1.py
+```
