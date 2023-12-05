@@ -31,7 +31,7 @@ sudo apt install ros-humble-nav2-bringup
 ### 1.1.4 Install Turtlebot Packages from Source
 ```
   sudo apt remove ros-humble-turtlebot3-msgs
-  sudo apt remove ros-humble-turtlebot3<img width="569" alt="Workload" src="https://github.com/callmekarl/Turtlebot3_ws/assets/105017251/371b3f99-5ef1-422e-9d3c-d6e514763715">
+  sudo apt remove ros-humble-turtlebot3
 
   git clone https://github.com/callmekarl/Turtlebot3_ws.git
   colcon build --symlink-install
@@ -86,6 +86,11 @@ sudo apt install ros-humble-nav2-bringup
 
 
 # 3. Running the Application
+Nowadays, AGVs are supporting the heterogeneous and growing demand of material handling and logistics in flexible factory environments. In our Use-case design, Turtlebot is configured to perform three workloads tasks respectively.
+<center>
+  img width="569" alt="Workload" src="https://github.com/callmekarl/Turtlebot3_ws/assets/105017251/371b3f99-5ef1-422e-9d3c-d6e514763715"
+</center>
+
 
 ## 3.1 Launch the Bringup
 ```
