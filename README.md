@@ -95,19 +95,19 @@ Nowadays, AGVs are supporting the heterogeneous and growing demand of material h
 - Workload2: AGV departs from Docking Station, picking up at Station 3, and then returns to the Docking Dtation to drop off.
 - Workload3: AGV departs from Docking Station, picking up at Station 2, droping off at Station 3, and then returns to the Docking Station.
 
-## 3.1 Launch the Bringup
+### 3.1 Launch the Bringup
 ```
   ssh turtlebot1@10.0.33.30
   export TURTLEBOT3_MODEL=burger
   ros2 launch turtlebot3_bringup robot.launch.py
 ```
-## 3.2 Launch the Navigation from Remote PC
+### 3.2 Launch the Navigation from Remote PC
 ```
   source ~/Turtlebot3_ws/install/setup.bash
   export TURTLEBOT3_MODEL=burger
   ros2 launch turtlebot3_navigation2 navigation2.launch.py map:=$HOME/map.yaml
 ```
-## 3.3 Run the Workload from Remote PC
+### 3.3 Run the Workload from Remote PC
 ```
   source ~/Turtlebot3_ws/install/setup.bash
   export TURTLEBOT3_MODEL=burger
