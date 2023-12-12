@@ -105,7 +105,7 @@ Nowadays, AGVs are supporting the heterogeneous and growing demand of material h
 ```
   source ~/Turtlebot3_ws/install/setup.bash
   export TURTLEBOT3_MODEL=burger
-  ros2 launch turtlebot3_navigation2 navigation2.launch.py map:=$HOME/map.yaml
+  ros2 launch turtlebot3_navigation2 navigation2.launch.py map:=maps/map.yaml
 ```
 ### 3.3 Run the Workload from Remote PC
 ```
