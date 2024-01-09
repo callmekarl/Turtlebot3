@@ -1,0 +1,29 @@
+version: "3.9"
+services:
+  # Base image containing dependencies.
+  pc:
+    image: turtlebot3
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+      args:
+        ROS_DISTRO: humble
+    # Interactive shell
+    tty: true
+    network_mode: "host"
+    ipc: host
+    pid: host
+    # Needed to display graphical applications
+    privileged: True
+    environment:
+      # Allows graphical programs in the container.
+      - DISPLAY=$DISPLAY
+      - ROS_DOMAIN_ID=30
+      - TURTLEBOT3_MODEL=${TURTLEBOT3_MODEL:-burger}
+      - RMW_IMPLEMENTATION=${RMW_IMPLEMENTATION:-rmw_fastrtps_cpp}
+      # - NVIDIA_DRIVER_CAPABILITIES=all
+    volumes:
+      # Allows graphical programs in the container.
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      - /tmp/.docker.xauth:/tmp/.docker.xauth:rw
+      - ./map:/map:z # Map files
