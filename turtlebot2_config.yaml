@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: turtlebot3-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: turtlebot3
+  template:
+    metadata:
+      labels:
+        app: turtlebot3
+    spec:
+      containers:
+      - name: turtlebot3
+        image: zhuhongyuy/turtlebot3
+        env:
+        - name: ROS_DOMAIN_ID
+          value: "30"
+        - name: TURTLEBOT3_MODEL
+          value: "burger"
+        - name: RMW_IMPLEMENTATION
+          value: "rmw_fastrtps_cpp"
+        - name: DISPLAY
+          value: "$DISPLAY"
+        ports:
+        - containerPort: 8080  
+        command:
+        - ros2
+        - run
+        - turtlebot3_teleop
+        - teleop_keyboard
+      nodeSelector:
+        kubernetes.io/hostname: "turtlebot2"  
+
